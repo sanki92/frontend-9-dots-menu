@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #10131c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.navigation{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background-color: #6565e1;
+    border-radius: 20%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 5px -5px 20px rgba(0, 0, 0, 0.583);
+    transition: 0.5s;
+    transition-delay: 0.8s;
+}
+.navigation.active{
+    width: 240px;
+    height: 240px;
+    border-radius: 20%;
+    transition-delay: 0s;
+}
+.navigation span{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transform: translate(calc(12px*var(--x)),calc(12px*var(--y)));
+    transition: transform 0.5s,width 0.5s,height 0.5s, background 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+}
+.navigation.navigation.active span{
+    width: 45px;
+    height: 45px;
+    background-color: #333849;
+    box-shadow: inset 10px -5px 20px rgb(0, 0, 0);
+    transform: translate(calc(60px*var(--x)),calc(60px*var(--y)));
+}
+.navigation span ion-icon{
+    font-size: 0;
+    transition:font-size 0.2s;
+    color: #fff;
+    filter: drop-shadow(0 0 2px #6565e1) drop-shadow(0 0 4px #6565e1) drop-shadow(0 0 8px #6565e1) drop-shadow(0 0 12px #6565e1) ;
+    transition-delay: calc(0.1s*var(--i));
+}
+.navigation.active span ion-icon{
+    transition: 1s;
+    font-size: 2rem;
+}
+.navigation.active span:hover ion-icon{filter:none;}
